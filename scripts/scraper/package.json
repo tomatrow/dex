@@ -4,14 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "./node_modules/mocha/bin/mocha",
         "start": "node scrape.js"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "cheerio": "^1.0.0-rc.2",
-        "mocha": "^5.2.0",
-        "puppeteer": "^1.10.0"
+        "axios": "^0.18.0",
+        "cheerio": "^1.0.0-rc.2"
     }
 }
