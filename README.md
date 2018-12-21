@@ -1,3 +1,3 @@
-# Enduring Word: iOS
+# dex
 
-Bringing the Enduring Word reference to iOS. 
+A bible tool.
