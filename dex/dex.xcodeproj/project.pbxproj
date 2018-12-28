@@ -1191,6 +1191,7 @@
 		502223A421CB2C3000E28EC9 /* isaiah-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */; };
 		502223A521CB2C3000E28EC9 /* psalm-121.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0C21CB2C2E00E28EC9 /* psalm-121.json */; };
 		506F2E0721D5FC6D007028A8 /* ESV.json in Resources */ = {isa = PBXBuildFile; fileRef = 506F2E0621D5FC6D007028A8 /* ESV.json */; };
+		5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085744D21D69A030041A06E /* ChapterTableViewController.swift */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
 		5087234221CB8837007925FF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087234121CB8837007925FF /* Info.swift */; };
 		50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BEC68021D6072100C07499 /* TabBarViewController.swift */; };
@@ -2383,6 +2384,7 @@
 		50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-1.json"; sourceTree = "<group>"; };
 		50221F0C21CB2C2E00E28EC9 /* psalm-121.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "psalm-121.json"; sourceTree = "<group>"; };
 		506F2E0621D5FC6D007028A8 /* ESV.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ESV.json; sourceTree = "<group>"; };
+		5085744D21D69A030041A06E /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		5087234121CB8837007925FF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		50BEC68021D6072100C07499 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -2425,6 +2427,7 @@
 				5087234321CB8842007925FF /* Model */,
 				50221A6121CB282300E28EC9 /* DetailViewController.swift */,
 				50221A6321CB282300E28EC9 /* Main.storyboard */,
+				5085744D21D69A030041A06E /* ChapterTableViewController.swift */,
 				50221A6621CB282500E28EC9 /* Assets.xcassets */,
 				50221A6821CB282500E28EC9 /* LaunchScreen.storyboard */,
 				50221A6B21CB282500E28EC9 /* Info.plist */,
@@ -4911,6 +4914,7 @@
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
 				5087234021CB8828007925FF /* Commentary.swift in Sources */,
 				5087234221CB8837007925FF /* Info.swift in Sources */,
+				5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */,
 				50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */,
 				50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */,
 			);

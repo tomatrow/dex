@@ -62,22 +62,6 @@
             </objects>
             <point key="canvasLocation" x="708" y="128.18590704647679"/>
         </scene>
-        <!--Item 2-->
-        <scene sceneID="4Fn-uA-pi6">
-            <objects>
-                <viewController id="7ag-pS-MVn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oBd-Pe-D6n">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5WI-aA-UL7"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="x6D-zK-SXb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lw8-eU-C6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-857" y="974"/>
-        </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Rpt-vx-yrE">
             <objects>
@@ -88,8 +72,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="7ag-pS-MVn" kind="relationship" relationship="viewControllers" id="Bdc-Mn-BdF"/>
                         <segue destination="H1p-Uh-vWS" kind="relationship" relationship="viewControllers" id="DyR-nP-PgQ"/>
+                        <segue destination="13b-hy-whO" kind="relationship" relationship="viewControllers" id="7DB-Di-lmN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ds-Mu-Mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,8 +154,54 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="pCL-Wf-Sp0">
+            <objects>
+                <tableViewController id="QW7-Bh-1eN" customClass="ChapterTableViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fd5-0r-jPc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="emd-Of-FzH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="emd-Of-FzH" id="36p-bb-ofU">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="QW7-Bh-1eN" id="A3t-zy-59I"/>
+                            <outlet property="delegate" destination="QW7-Bh-1eN" id="ngg-6E-8rb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="cge-HV-rfa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ps-1c-WLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.8000000000000007" y="1092.5037481259371"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="pZF-5m-bKf">
+            <objects>
+                <navigationController id="13b-hy-whO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="nLw-6P-UKn"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9m-kH-vep">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QW7-Bh-1eN" kind="relationship" relationship="rootViewController" id="cAP-ba-ghx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JQT-aH-1E5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="1093"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>
