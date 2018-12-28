@@ -111,7 +111,6 @@ if (!fs.existsSync(indexDir)) {
 } else
     console.log(`index already exists at ${indexDir}`)
 
-
 // Currently writting this tree parser
 const rawTree = `
 old
@@ -137,25 +136,26 @@ old
         proverbs
         ecclesiastes
         song-of-solomon
-    major
-        isaiah
-        jeremiah
-        lamentations
-        ezekiel
-        daniel
-    minor
-        hosea
-        joel
-        amos
-        obadiah
-        jonah
-        micah
-        nahum
-        habakkuk
-        zephaniah
-        haggai
-        zechariah
-        malachi
+    prophets
+        major
+            isaiah
+            jeremiah
+            lamentations
+            ezekiel
+            daniel
+        minor
+            hosea
+            joel
+            amos
+            obadiah
+            jonah
+            micah
+            nahum
+            habakkuk
+            zephaniah
+            haggai
+            zechariah
+            malachi
 new
     gospel
         matthew
@@ -176,7 +176,7 @@ new
                 colossians
                 1-thessalonians
                 2-thessalonians
-            persons
+            people
                 1-timothy
                 2-timothy
                 titus
@@ -201,6 +201,7 @@ new
  * @indent The size of the indentation in spaces
  */
 const parseTree = (text, indent) => {
+    // Set the indentation units
     const lines = text.split('\n')
     const indentUnit = ' '.repeat(indent)
     return lines
@@ -215,6 +216,53 @@ const parseTree = (text, indent) => {
             data: parts[parts.length - 1]
         }))
 }
+
+
+const recurse = (parent, possibleChildren) => {
+    parent.children = []
+    const nextLevel = parent.level + 1
+
+    const pairs = possibleChildren
+        .map((node, index) => ({
+            node,
+            index
+        })) // lift to node with its index in possibleChildren
+        .filter(pair => pair.node.level === nextLevel) // keep direct children
+    const atEnd = index => index === pairs.length - 1
+
+    for (let i = 0; i < pairs.length; i++) {
+
+        const cur = pairs[i]
+        const next = pairs[i + 1]
+
+        // half open range, e.g. [a,b) of
+        const range = {
+            start: cur.index + 1,
+            end: atEnd(i) ? possibleChildren.length : next.index
+        }
+        const possibleDirectChildren = possibleChildren.slice(range.start, range.end)
+
+        const directChild = cur.node
+        const child = recurse(directChild, possibleDirectChildren)
+        parent.children.push(child)
+    }
+
+    return parent
+}
+
+const buildTree = list => {
+
+    const result = recurse({
+        level: 0,
+        data: 'bible'
+    }, list)
+
+    return result
+}
+
+const levelList = parseTree(rawTree, 4)
+const tree = buildTree(levelList)
+console.log(tree)
 
 /*
   const createTreeRecursive = levelBookList => {}

@@ -1193,6 +1193,7 @@
 		506F2E0721D5FC6D007028A8 /* ESV.json in Resources */ = {isa = PBXBuildFile; fileRef = 506F2E0621D5FC6D007028A8 /* ESV.json */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
 		5087234221CB8837007925FF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087234121CB8837007925FF /* Info.swift */; };
+		50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BEC68021D6072100C07499 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2384,6 +2385,7 @@
 		506F2E0621D5FC6D007028A8 /* ESV.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ESV.json; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		5087234121CB8837007925FF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		50BEC68021D6072100C07499 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2419,6 +2421,7 @@
 				50221A7121CB28BA00E28EC9 /* data */,
 				50221A5D21CB282300E28EC9 /* AppDelegate.swift */,
 				50221A5F21CB282300E28EC9 /* MasterViewController.swift */,
+				50BEC68021D6072100C07499 /* TabBarViewController.swift */,
 				5087234321CB8842007925FF /* Model */,
 				50221A6121CB282300E28EC9 /* DetailViewController.swift */,
 				50221A6321CB282300E28EC9 /* Main.storyboard */,
@@ -4908,6 +4911,7 @@
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
 				5087234021CB8828007925FF /* Commentary.swift in Sources */,
 				5087234221CB8837007925FF /* Info.swift in Sources */,
+				50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */,
 				50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
