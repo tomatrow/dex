@@ -1190,6 +1190,7 @@
 		502223A321CB2C3000E28EC9 /* isaiah-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0A21CB2C2E00E28EC9 /* isaiah-5.json */; };
 		502223A421CB2C3000E28EC9 /* isaiah-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */; };
 		502223A521CB2C3000E28EC9 /* psalm-121.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0C21CB2C2E00E28EC9 /* psalm-121.json */; };
+		506F2E0721D5FC6D007028A8 /* ESV.json in Resources */ = {isa = PBXBuildFile; fileRef = 506F2E0621D5FC6D007028A8 /* ESV.json */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
 		5087234221CB8837007925FF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087234121CB8837007925FF /* Info.swift */; };
 /* End PBXBuildFile section */
@@ -2380,6 +2381,7 @@
 		50221F0A21CB2C2E00E28EC9 /* isaiah-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-5.json"; sourceTree = "<group>"; };
 		50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-1.json"; sourceTree = "<group>"; };
 		50221F0C21CB2C2E00E28EC9 /* psalm-121.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "psalm-121.json"; sourceTree = "<group>"; };
+		506F2E0621D5FC6D007028A8 /* ESV.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ESV.json; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		5087234121CB8837007925FF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2430,6 +2432,7 @@
 		50221A7121CB28BA00E28EC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				506F2E0421D5FC45007028A8 /* bibles */,
 				50221A7221CB28C600E28EC9 /* commentaries */,
 			);
 			path = data;
@@ -3627,6 +3630,22 @@
 			path = "enduring-word";
 			sourceTree = "<group>";
 		};
+		506F2E0421D5FC45007028A8 /* bibles */ = {
+			isa = PBXGroup;
+			children = (
+				506F2E0521D5FC4F007028A8 /* esv */,
+			);
+			path = bibles;
+			sourceTree = "<group>";
+		};
+		506F2E0521D5FC4F007028A8 /* esv */ = {
+			isa = PBXGroup;
+			children = (
+				506F2E0621D5FC6D007028A8 /* ESV.json */,
+			);
+			path = esv;
+			sourceTree = "<group>";
+		};
 		5087234321CB8842007925FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -3794,6 +3813,7 @@
 				5022209021CB2C2F00E28EC9 /* deuteronomy-30.json in Resources */,
 				502220B321CB2C2F00E28EC9 /* ecclesiastes-5.json in Resources */,
 				50221FC021CB2C2F00E28EC9 /* numbers-21.json in Resources */,
+				506F2E0721D5FC6D007028A8 /* ESV.json in Resources */,
 				50221F8921CB2C2E00E28EC9 /* 2-kings-18.json in Resources */,
 				50221FBB21CB2C2E00E28EC9 /* romans-12.json in Resources */,
 				5022212B21CB2C2F00E28EC9 /* job-17.json in Resources */,
