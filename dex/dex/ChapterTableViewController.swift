@@ -35,6 +35,17 @@ class ChapterTableViewController: UITableViewController {
 
         return cell
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "showDetail" {
+			if let index = tableView.indexPathForSelectedRow {
+				let text = objects[index.row].text
+				let controller = segue.destination as! DetailTextViewController
+				controller.text = text
+				
+			}
+		}
+	}
 }
 
 struct CellViewModel {

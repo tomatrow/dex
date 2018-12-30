@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013C82321D886C900018173 /* DetailTextViewController.swift */; };
 		50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A5D21CB282300E28EC9 /* AppDelegate.swift */; };
 		50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A5F21CB282300E28EC9 /* MasterViewController.swift */; };
 		50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A6121CB282300E28EC9 /* DetailViewController.swift */; };
@@ -1198,6 +1199,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5013C82321D886C900018173 /* DetailTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextViewController.swift; sourceTree = "<group>"; };
 		50221A5A21CB282300E28EC9 /* dex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50221A5D21CB282300E28EC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50221A5F21CB282300E28EC9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -2427,6 +2429,7 @@
 				5087234321CB8842007925FF /* Model */,
 				50221A6121CB282300E28EC9 /* DetailViewController.swift */,
 				50221A6321CB282300E28EC9 /* Main.storyboard */,
+				5013C82321D886C900018173 /* DetailTextViewController.swift */,
 				5085744D21D69A030041A06E /* ChapterTableViewController.swift */,
 				50221A6621CB282500E28EC9 /* Assets.xcassets */,
 				50221A6821CB282500E28EC9 /* LaunchScreen.storyboard */,
@@ -4910,6 +4913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */,
 				50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */,
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
 				5087234021CB8828007925FF /* Commentary.swift in Sources */,
