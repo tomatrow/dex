@@ -10,7 +10,7 @@ import UIKit
 
 class DetailTextViewController: UIViewController {
 	
-	@IBOutlet weak var textLabel: UILabel!
+	@IBOutlet weak var textView: UITextView!
 	var text = "Some text." {
 		didSet {
 			configureView()
@@ -18,8 +18,8 @@ class DetailTextViewController: UIViewController {
 	}
 	
 	func configureView() {
-		if let label = textLabel {		
-			label.text = text
+		if let textView = textView {
+			textView.text = text 	
 		}
 	}
 

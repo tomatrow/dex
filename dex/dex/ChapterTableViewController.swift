@@ -42,7 +42,6 @@ class ChapterTableViewController: UITableViewController {
 				let text = objects[index.row].text
 				let controller = segue.destination as! DetailTextViewController
 				controller.text = text
-				
 			}
 		}
 	}
