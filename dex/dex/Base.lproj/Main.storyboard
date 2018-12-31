@@ -13,7 +13,7 @@
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
-                <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                <navigationController title="Master" hidesBarsOnSwipe="YES" hidesBarsOnTap="YES" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -141,7 +141,7 @@
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">
             <objects>
-                <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
+                <navigationController hidesBarsOnSwipe="YES" hidesBarsOnTap="YES" hidesBarsWhenVerticallyCompact="YES" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Chapters-->
         <scene sceneID="pCL-Wf-Sp0">
             <objects>
-                <tableViewController id="QW7-Bh-1eN" customClass="ChapterTableViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Chapters" id="QW7-Bh-1eN" customClass="ChapterTableViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fd5-0r-jPc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +171,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="36P-5x-Vl0" kind="showDetail" identifier="showDetail" id="58w-Oh-amt"/>
+                                    <segue destination="36P-5x-Vl0" kind="show" identifier="showDetail" id="58w-Oh-amt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -180,7 +180,7 @@
                             <outlet property="delegate" destination="QW7-Bh-1eN" id="ngg-6E-8rb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cge-HV-rfa"/>
+                    <navigationItem key="navigationItem" title="Chapters" id="cge-HV-rfa"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ps-1c-WLK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yn8-jq-7SF">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -223,12 +223,15 @@
         <!--Item-->
         <scene sceneID="pZF-5m-bKf">
             <objects>
-                <navigationController id="13b-hy-whO" sceneMemberID="viewController">
+                <navigationController hidesBarsOnSwipe="YES" hidesBarsWhenVerticallyCompact="YES" id="13b-hy-whO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="nLw-6P-UKn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T9m-kH-vep">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcb-iI-q79">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="QW7-Bh-1eN" kind="relationship" relationship="rootViewController" id="cAP-ba-ghx"/>
                     </connections>
