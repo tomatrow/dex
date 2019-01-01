@@ -1,24 +1,18 @@
-<<<<<<< Updated upstream
-# dex
-
-A bible tool.
-=======
 # Dex
 
-Simplifying devotion.
+A well indexed bible study tool.
 
 ## Features
 
-A set of inter-connected bible study tools unified by a single index.
-
 Now
 
--   [ ] commentaries: Enduring Word
+-   commentaries:
+    -   [x] Enduring Word
+-   bibles:
+    -   [x] ESV
 
 Later
 
--   [ ] bibles: ESV
 -   [ ] periscope-index with chapter descriptions
 -   [ ] topical search
--   [ ] Spotify integration
->>>>>>> Stashed changes
+-   [ ] Spotify integration for background music
