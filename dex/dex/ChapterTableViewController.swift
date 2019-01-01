@@ -95,21 +95,36 @@ extension ChapterTableViewController {
 		for bookObject in rawBible {
 			let bookName = bookObject.key
 			var chapters = [Chapter]()
+			
+			// read all the chapters 
 			for chapterObject in bookObject.value {
 				let chapterNumber = chapterObject.key
 				var verses = [Verse]()
+				
+				// read all the verses
 				for verseObject in chapterObject.value {
 					let verseNumber = verseObject.key
-					let verseText = verseObject.value	
+					let verseText = verseObject.value
 					let verse = Verse(number: Int(verseNumber)!, text: verseText)
 					verses.append(verse)
 				}
+				
+				// sort the verses 
+				verses.sort { $0.number < $1.number }
+
 				let chapter = Chapter(number: Int(chapterNumber)!, verses: verses)
 				chapters.append(chapter)
 			}
+			
+			// sort the chapters 
+			chapters.sort { $0.number < $1.number }
+			
 			let book = Book(name: bookName, chapters: chapters)
 			bible.append(book)
 		}
+		
+		// sort the books 
+		bible.sort { $0.name < $1.name }
 		
 		for book in bible  {
 
