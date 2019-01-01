@@ -1191,6 +1191,8 @@
 		502223A321CB2C3000E28EC9 /* isaiah-5.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0A21CB2C2E00E28EC9 /* isaiah-5.json */; };
 		502223A421CB2C3000E28EC9 /* isaiah-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */; };
 		502223A521CB2C3000E28EC9 /* psalm-121.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0C21CB2C2E00E28EC9 /* psalm-121.json */; };
+		5060FEDA21DBE49C00C52C82 /* topic-votes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5060FED821DBE49B00C52C82 /* topic-votes.txt */; };
+		5060FEDB21DBE49C00C52C82 /* topic-scores.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5060FED921DBE49B00C52C82 /* topic-scores.txt */; };
 		506F2E0721D5FC6D007028A8 /* ESV.json in Resources */ = {isa = PBXBuildFile; fileRef = 506F2E0621D5FC6D007028A8 /* ESV.json */; };
 		5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085744D21D69A030041A06E /* ChapterTableViewController.swift */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
@@ -2385,6 +2387,8 @@
 		50221F0A21CB2C2E00E28EC9 /* isaiah-5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-5.json"; sourceTree = "<group>"; };
 		50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-1.json"; sourceTree = "<group>"; };
 		50221F0C21CB2C2E00E28EC9 /* psalm-121.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "psalm-121.json"; sourceTree = "<group>"; };
+		5060FED821DBE49B00C52C82 /* topic-votes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "topic-votes.txt"; path = "dex/data/topics/topic-votes.txt"; sourceTree = SOURCE_ROOT; };
+		5060FED921DBE49B00C52C82 /* topic-scores.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "topic-scores.txt"; path = "dex/data/topics/topic-scores.txt"; sourceTree = SOURCE_ROOT; };
 		506F2E0621D5FC6D007028A8 /* ESV.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ESV.json; sourceTree = "<group>"; };
 		5085744D21D69A030041A06E /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
@@ -2441,6 +2445,7 @@
 		50221A7121CB28BA00E28EC9 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				5060FED721DBE48000C52C82 /* topics */,
 				506F2E0421D5FC45007028A8 /* bibles */,
 				50221A7221CB28C600E28EC9 /* commentaries */,
 			);
@@ -3639,6 +3644,16 @@
 			path = "enduring-word";
 			sourceTree = "<group>";
 		};
+		5060FED721DBE48000C52C82 /* topics */ = {
+			isa = PBXGroup;
+			children = (
+				5060FED921DBE49B00C52C82 /* topic-scores.txt */,
+				5060FED821DBE49B00C52C82 /* topic-votes.txt */,
+			);
+			name = topics;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		506F2E0421D5FC45007028A8 /* bibles */ = {
 			isa = PBXGroup;
 			children = (
@@ -4246,6 +4261,7 @@
 				5022239721CB2C3000E28EC9 /* proverbs-8.json in Resources */,
 				50221F8821CB2C2E00E28EC9 /* psalm-34.json in Resources */,
 				50221FF721CB2C2F00E28EC9 /* psalm-114.json in Resources */,
+				5060FEDA21DBE49C00C52C82 /* topic-votes.txt in Resources */,
 				5022200E21CB2C2F00E28EC9 /* psalm-116.json in Resources */,
 				502222BB21CB2C2F00E28EC9 /* genesis-35.json in Resources */,
 				502222E421CB2C2F00E28EC9 /* matthew-27.json in Resources */,
@@ -4580,6 +4596,7 @@
 				5022207D21CB2C2F00E28EC9 /* 2-samuel-23.json in Resources */,
 				5022235B21CB2C3000E28EC9 /* psalm-120.json in Resources */,
 				5022238C21CB2C3000E28EC9 /* psalm-141.json in Resources */,
+				5060FEDB21DBE49C00C52C82 /* topic-scores.txt in Resources */,
 				5022203921CB2C2F00E28EC9 /* psalm-119.json in Resources */,
 				5022229321CB2C2F00E28EC9 /* numbers-2.json in Resources */,
 				502220B221CB2C2F00E28EC9 /* hebrews-6.json in Resources */,
