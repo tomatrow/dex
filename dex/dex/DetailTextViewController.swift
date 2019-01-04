@@ -9,24 +9,22 @@
 import UIKit
 
 class DetailTextViewController: UIViewController {
-	
-	@IBOutlet weak var textView: UITextView!
-	var text = "Some text." {
-		didSet {
-			configureView()
-		}
-	}
-	
-	func configureView() {
-		if let textView = textView {
-			textView.text = text 	
-		}
-	}
+    @IBOutlet var textView: UITextView!
+    var text = "Some text." {
+        didSet {
+            configureView()
+        }
+    }
+
+    func configureView() {
+        if let textView = textView {
+            textView.text = text
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		configureView()
+        configureView()
         // Do any additional setup after loading the view.
     }
-
 }

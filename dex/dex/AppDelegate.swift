@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		let tabBarController = window!.rootViewController as! UITabBarController
-		
+        let tabBarController = window!.rootViewController as! UITabBarController
+
         // Override point for customization after application launch.
         let splitViewController = tabBarController.viewControllers!.filter { $0 is UISplitViewController }.first! as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count - 1] as! UINavigationController
