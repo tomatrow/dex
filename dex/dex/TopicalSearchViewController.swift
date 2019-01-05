@@ -36,6 +36,17 @@ class TopicalSearchViewController: UITableViewController {
         // Setup the Scope Bar
         searchController.searchBar.delegate = self
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "showDetail" {
+            if let index = tableView.indexPathForSelectedRow {
+                let topic = viewModel[index.row]
+                let results = table[topic]!
+                let controller = segue.destination as! TopicDetailViewController
+                controller.topicResults = results
+            }
+        }
+    }
 }
 
 // MARK: Helper methods
