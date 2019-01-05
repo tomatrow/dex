@@ -24,7 +24,6 @@ class TopicalSearchViewController: UITableViewController {
         definesPresentationContext = true
 
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["One", "Two", "Three"]
         searchController.searchBar.delegate = self
     }
 }
@@ -118,10 +117,6 @@ extension TopicalSearchViewController {
 extension TopicalSearchViewController: UISearchResultsUpdating {
     // Note: This is called with the search text changes
     func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        let text = searchBar.text!
-        searchFor(text, in: scope)
     }
 }
 
