@@ -69,7 +69,7 @@ extension TopicalSearchViewController {
         rows[1 ..< rows.endIndex - 1].forEach { row in
             assert(row.count == 3)
 
-            // exteact data from row
+            // extract data from row
             let topic = row[0]
             let result = TopicResult(section: row[1], score: row[2])!
 
