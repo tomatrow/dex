@@ -1196,6 +1196,7 @@
 		5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060FEDC21DBEE9400C52C82 /* TopicalSearchViewController.swift */; };
 		5060FEDF21DC3C5A00C52C82 /* TopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060FEDE21DC3C5A00C52C82 /* TopicDetailViewController.swift */; };
 		506F2E0721D5FC6D007028A8 /* ESV.json in Resources */ = {isa = PBXBuildFile; fileRef = 506F2E0621D5FC6D007028A8 /* ESV.json */; };
+		507FD81E21E129EA00CDBB93 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507FD81D21E129E900CDBB93 /* NotesViewController.swift */; };
 		5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085744D21D69A030041A06E /* ChapterTableViewController.swift */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
 		5087234221CB8837007925FF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087234121CB8837007925FF /* Info.swift */; };
@@ -2394,6 +2395,7 @@
 		5060FEDC21DBEE9400C52C82 /* TopicalSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicalSearchViewController.swift; sourceTree = "<group>"; };
 		5060FEDE21DC3C5A00C52C82 /* TopicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailViewController.swift; sourceTree = "<group>"; };
 		506F2E0621D5FC6D007028A8 /* ESV.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ESV.json; sourceTree = "<group>"; };
+		507FD81D21E129E900CDBB93 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		5085744D21D69A030041A06E /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		5087234121CB8837007925FF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -2437,6 +2439,7 @@
 				5087234321CB8842007925FF /* Model */,
 				50221A6121CB282300E28EC9 /* DetailViewController.swift */,
 				50221A6321CB282300E28EC9 /* Main.storyboard */,
+				507FD81D21E129E900CDBB93 /* NotesViewController.swift */,
 				5060FEDE21DC3C5A00C52C82 /* TopicDetailViewController.swift */,
 				5060FEDC21DBEE9400C52C82 /* TopicalSearchViewController.swift */,
 				5013C82321D886C900018173 /* DetailTextViewController.swift */,
@@ -4960,6 +4963,7 @@
 			files = (
 				5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */,
 				5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */,
+				507FD81E21E129EA00CDBB93 /* NotesViewController.swift in Sources */,
 				50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */,
 				5060FEDF21DC3C5A00C52C82 /* TopicDetailViewController.swift in Sources */,
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
