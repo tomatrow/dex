@@ -9,8 +9,18 @@
 import UIKit
 
 class TopicalSearchViewController: UITableViewController {
-    lazy var viewModel = self.table.keys.sorted()
     lazy var table = loadData()
+    lazy var allTopics = self.table.keys.sorted()
+    var filteredTopics: [String]? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    var viewModel: [String] {
+        return filteredTopics ?? allTopics
+    }
+
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -44,8 +54,8 @@ struct TopicResult {
 typealias TopicTable = [String: [TopicResult]]
 
 extension TopicalSearchViewController {
-    func searchFor(_ text: String, in scope: String) {
-        print("Searching for '\(text)' in scope: \(scope)")
+    func searchFor(_ text: String) -> [String] {
+        return allTopics.filter { $0.contains(text.lowercased()) }
     }
 
     func loadData() -> TopicTable {
@@ -117,6 +127,8 @@ extension TopicalSearchViewController {
 extension TopicalSearchViewController: UISearchResultsUpdating {
     // Note: This is called with the search text changes
     func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text!
+        filteredTopics = text.isEmpty ? nil : searchFor(text)
     }
 }
 
