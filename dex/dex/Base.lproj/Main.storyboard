@@ -66,7 +66,7 @@
         <!--Tab Bar View Controller-->
         <scene sceneID="Rpt-vx-yrE">
             <objects>
-                <tabBarController id="OZn-ui-cxa" customClass="TabBarViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main-container" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OZn-ui-cxa" customClass="TabBarViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a6x-er-F8x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -324,7 +324,7 @@
         <!--Notes-->
         <scene sceneID="ydb-Ke-Roe">
             <objects>
-                <viewController id="0zS-kB-nYc" customClass="NotesViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zS-kB-nYc" customClass="NotesViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp5-UF-TT3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

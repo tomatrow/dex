@@ -23,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return true
     }
 
+    func application(_: UIApplication, shouldSaveApplicationState _: NSCoder) -> Bool {
+        return true
+    }
+
+    func application(_: UIApplication, shouldRestoreApplicationState _: NSCoder) -> Bool {
+        return true
+    }
+
     // MARK: - Split view
 
     func splitViewController(_: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto _: UIViewController) -> Bool {
