@@ -320,58 +320,67 @@
             </objects>
             <point key="canvasLocation" x="-857" y="1890"/>
         </scene>
-        <!--Notes-->
-        <scene sceneID="ydb-Ke-Roe">
-            <objects>
-                <viewController storyboardIdentifier="notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zS-kB-nYc" customClass="JournalViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lp5-UF-TT3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fOG-n0-H5W">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text" base64-UTF8="YES">
-CgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCg
-</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fOG-n0-H5W" firstAttribute="leading" secondItem="fGg-Tu-EKO" secondAttribute="leading" id="BRd-g7-B1D"/>
-                            <constraint firstItem="fOG-n0-H5W" firstAttribute="top" secondItem="fGg-Tu-EKO" secondAttribute="top" id="aWG-wf-uJH"/>
-                            <constraint firstItem="fGg-Tu-EKO" firstAttribute="trailing" secondItem="fOG-n0-H5W" secondAttribute="trailing" id="geq-AZ-4bP"/>
-                            <constraint firstItem="fGg-Tu-EKO" firstAttribute="bottom" secondItem="fOG-n0-H5W" secondAttribute="bottom" id="hIc-Ku-nkW"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fGg-Tu-EKO"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Notes" id="3MI-s7-agi"/>
-                    <navigationItem key="navigationItem" id="EUW-De-uXh"/>
-                    <connections>
-                        <outlet property="textView" destination="fOG-n0-H5W" id="kOB-Lw-k2T"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BgV-eb-grm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-904" y="2733"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="sAh-Yk-HgV">
             <objects>
-                <navigationController id="7gg-CS-TEp" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" hidesBarsOnSwipe="YES" hidesBarsWhenKeyboardAppears="YES" id="7gg-CS-TEp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tgE-RK-lX0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GsV-yU-00K">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
-                        <segue destination="0zS-kB-nYc" kind="relationship" relationship="rootViewController" id="IQv-4e-map"/>
+                        <segue destination="Dgq-nZ-Dc9" kind="relationship" relationship="rootViewController" id="pbE-OB-3uf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81x-v8-2Es" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1833" y="2732"/>
+        </scene>
+        <!--Journal-->
+        <scene sceneID="p2U-SY-92i">
+            <objects>
+                <viewController storyboardIdentifier="journal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dgq-nZ-Dc9" customClass="JournalViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nk2-4c-nNw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ume-92-z29">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="top" secondItem="ume-92-z29" secondAttribute="top" id="Nyu-Gu-6SK"/>
+                            <constraint firstItem="zmM-8i-61H" firstAttribute="trailing" secondItem="ume-92-z29" secondAttribute="trailing" id="awz-Rp-R7F"/>
+                            <constraint firstItem="zmM-8i-61H" firstAttribute="bottom" secondItem="ume-92-z29" secondAttribute="bottom" id="h7X-QH-H6h"/>
+                            <constraint firstItem="ume-92-z29" firstAttribute="leading" secondItem="zmM-8i-61H" secondAttribute="leading" id="reU-d3-WxB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zmM-8i-61H"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="B" id="RFZ-ev-om8"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="kgR-Ob-f6x"/>
+                        <barButtonItem title="C" id="cqD-3Q-XjB"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Journal" id="qcZ-9O-eTQ">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="K1v-3C-Cfl"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="eKa-7b-Ne7"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="ume-92-z29" id="ydR-17-bOQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OBq-2B-H9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-887" y="2731"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
