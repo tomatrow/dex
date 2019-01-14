@@ -324,7 +324,7 @@
         <!--Notes-->
         <scene sceneID="ydb-Ke-Roe">
             <objects>
-                <viewController storyboardIdentifier="notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zS-kB-nYc" customClass="NotesViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notes" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0zS-kB-nYc" customClass="JournalViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lp5-UF-TT3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

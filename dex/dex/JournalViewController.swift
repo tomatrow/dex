@@ -8,8 +8,8 @@
 
 import UIKit
 
-class NotesViewController: UIViewController {
-    var notes = NotesViewController.loadText() {
+class JournalViewController: UIViewController {
+    var notes = JournalViewController.loadText() {
         didSet {
             saveText(notes)
         }
@@ -24,7 +24,7 @@ class NotesViewController: UIViewController {
     }
 }
 
-extension NotesViewController: UITextViewDelegate {
+extension JournalViewController: UITextViewDelegate {
     func textViewDidEndEditing(_: UITextView) {
         notes = textView.text
     }
@@ -32,7 +32,7 @@ extension NotesViewController: UITextViewDelegate {
 
 fileprivate let notesKey = "notes-text"
 
-extension NotesViewController {
+extension JournalViewController {
     func saveText(_ text: String) {
         UserDefaults.standard.set(text, forKey: notesKey)
     }
