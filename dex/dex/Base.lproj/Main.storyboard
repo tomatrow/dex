@@ -76,7 +76,6 @@
                         <segue destination="H1p-Uh-vWS" kind="relationship" relationship="viewControllers" id="DyR-nP-PgQ"/>
                         <segue destination="13b-hy-whO" kind="relationship" relationship="viewControllers" id="7DB-Di-lmN"/>
                         <segue destination="ktV-SA-f2I" kind="relationship" relationship="viewControllers" id="Bn4-aS-GbN"/>
-                        <segue destination="0zS-kB-nYc" kind="relationship" relationship="viewControllers" id="pdk-l6-XLM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ds-Mu-Mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -376,7 +375,6 @@ CgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCg
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IQv-4e-map"/>
         <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>
