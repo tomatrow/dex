@@ -323,7 +323,7 @@
         <!--Navigation Controller-->
         <scene sceneID="sAh-Yk-HgV">
             <objects>
-                <navigationController toolbarHidden="NO" hidesBarsOnSwipe="YES" hidesBarsWhenKeyboardAppears="YES" id="7gg-CS-TEp" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" hidesBarsOnSwipe="YES" id="7gg-CS-TEp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tgE-RK-lX0">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -374,7 +374,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="K1v-3C-Cfl"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="eKa-7b-Ne7">
                             <connections>
-                                <segue destination="NKP-R6-iio" kind="show" id="Exj-eM-wMB"/>
+                                <segue destination="owk-TW-cJz" kind="presentation" id="Ucf-Jx-vla"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -386,40 +386,57 @@
             </objects>
             <point key="canvasLocation" x="-887" y="2731"/>
         </scene>
-        <!--Find View Controller-->
-        <scene sceneID="DsC-nj-TPo">
+        <!--Find-->
+        <scene sceneID="JlP-mI-gVs">
             <objects>
-                <viewController id="NKP-R6-iio" customClass="FindViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CpC-As-vDC">
+                <tableViewController storyboardIdentifier="find" title="Find" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gYV-ww-3QH" customClass="FindViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NXo-xX-dDe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="hhW-XN-KBw"/>
-                    </view>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="957-Lu-fZx" id="wxX-JL-86N"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Xv-yW-qkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchBar contentMode="redraw" id="Lbb-Tk-bhp">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="NKP-R6-iio" id="bqB-GW-EcC"/>
-                    </connections>
-                </searchBar>
-                <searchDisplayController id="957-Lu-fZx">
-                    <connections>
-                        <outlet property="delegate" destination="NKP-R6-iio" id="Tad-La-oG9"/>
-                        <outlet property="searchBar" destination="Lbb-Tk-bhp" id="vzU-to-ni3"/>
-                        <outlet property="searchContentsController" destination="NKP-R6-iio" id="R3g-jA-z7z"/>
-                        <outlet property="searchResultsDataSource" destination="NKP-R6-iio" id="qq7-Fl-lry"/>
-                        <outlet property="searchResultsDelegate" destination="NKP-R6-iio" id="pUr-fQ-rdC"/>
-                    </connections>
-                </searchDisplayController>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="KyH-bs-wzK">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KyH-bs-wzK" id="gBw-bZ-uXD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gYV-ww-3QH" id="q4J-3N-cl7"/>
+                            <outlet property="delegate" destination="gYV-ww-3QH" id="zOW-cZ-vNd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Find" id="B40-df-fZN">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="aKL-58-8Iu">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="gYV-ww-3QH" id="tPc-7T-cRJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCb-Zx-Hec" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="2731"/>
+            <point key="canvasLocation" x="708" y="2731"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vj7-jb-1mv">
+            <objects>
+                <navigationController id="owk-TW-cJz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ryg-4C-eWu">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gYV-ww-3QH" kind="relationship" relationship="rootViewController" id="qLF-n8-hGA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3hq-cZ-XQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="2731"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
