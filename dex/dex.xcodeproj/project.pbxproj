@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013C82321D886C900018173 /* DetailTextViewController.swift */; };
+		501AB79921F046B5003FD095 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AB79821F046B5003FD095 /* Index.swift */; };
+		501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AB79A21F049DE003FD095 /* CommentaryViewController.swift */; };
 		50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A5D21CB282300E28EC9 /* AppDelegate.swift */; };
 		50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A5F21CB282300E28EC9 /* MasterViewController.swift */; };
 		50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50221A6121CB282300E28EC9 /* DetailViewController.swift */; };
@@ -1206,6 +1208,8 @@
 
 /* Begin PBXFileReference section */
 		5013C82321D886C900018173 /* DetailTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextViewController.swift; sourceTree = "<group>"; };
+		501AB79821F046B5003FD095 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Index.swift; path = model/Index.swift; sourceTree = "<group>"; };
+		501AB79A21F049DE003FD095 /* CommentaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryViewController.swift; sourceTree = "<group>"; };
 		50221A5A21CB282300E28EC9 /* dex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50221A5D21CB282300E28EC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50221A5F21CB282300E28EC9 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -2441,6 +2445,7 @@
 				5087234321CB8842007925FF /* Model */,
 				50221A6121CB282300E28EC9 /* DetailViewController.swift */,
 				50221A6321CB282300E28EC9 /* Main.storyboard */,
+				501AB79A21F049DE003FD095 /* CommentaryViewController.swift */,
 				5056144E21ED42A700A2D1D3 /* FindViewController.swift */,
 				507FD81D21E129E900CDBB93 /* JournalViewController.swift */,
 				5060FEDE21DC3C5A00C52C82 /* TopicDetailViewController.swift */,
@@ -3686,6 +3691,7 @@
 			isa = PBXGroup;
 			children = (
 				5087234121CB8837007925FF /* Info.swift */,
+				501AB79821F046B5003FD095 /* Index.swift */,
 				5087233F21CB8828007925FF /* Commentary.swift */,
 			);
 			name = Model;
@@ -4968,10 +4974,12 @@
 				5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */,
 				507FD81E21E129EA00CDBB93 /* JournalViewController.swift in Sources */,
 				50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */,
+				501AB79921F046B5003FD095 /* Index.swift in Sources */,
 				5060FEDF21DC3C5A00C52C82 /* TopicDetailViewController.swift in Sources */,
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
 				5087234021CB8828007925FF /* Commentary.swift in Sources */,
 				5087234221CB8837007925FF /* Info.swift in Sources */,
+				501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */,
 				5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */,
 				50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */,
 				50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */,
