@@ -445,7 +445,7 @@
         <!--Commentary-->
         <scene sceneID="Vej-Tb-4EU">
             <objects>
-                <viewController title="Commentary" extendedLayoutIncludesOpaqueBars="YES" id="zqf-du-Pt4" sceneMemberID="viewController">
+                <viewController title="Commentary" extendedLayoutIncludesOpaqueBars="YES" id="zqf-du-Pt4" customClass="CommentaryViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wce-2c-98p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,6 +469,9 @@
                         <viewLayoutGuide key="safeArea" id="G2T-Lt-nGg"/>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="OKj-aI-I4U" id="W05-cD-gNH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqX-B0-8J4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

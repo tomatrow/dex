@@ -7,9 +7,29 @@
 //
 
 import UIKit
+import WebKit
 
 class CommentaryViewController: UIViewController {
+    @IBOutlet var webView: WKWebView!
+    var commentary: Commentary? {
+        didSet {
+            configureView()
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+    }
+}
+
+extension CommentaryViewController {
+    func configureView() {
+        guard let commentary = commentary,
+            let webView = webView
+        else { return }
+
+        let markup = commentary.markup
+        webView.loadHTMLString(markup, baseURL: Bundle.main.bundleURL)
     }
 }
