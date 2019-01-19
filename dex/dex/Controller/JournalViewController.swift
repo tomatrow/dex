@@ -22,6 +22,15 @@ class JournalViewController: UIViewController {
         textView.delegate = self
         textView.text = notes
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        guard segue.identifier == "showCommentary",
+            let commentaryController = segue.destination as? CommentaryViewController
+        else { return }
+
+        // Just load this as the default commentary for now
+        commentaryController.commentary = Loader.commentaries.first!
+    }
 }
 
 extension JournalViewController: UITextViewDelegate {
