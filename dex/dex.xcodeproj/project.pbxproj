@@ -10,6 +10,7 @@
 		5002D60921F2C652000C60F4 /* TopicResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002D60821F2C652000C60F4 /* TopicResult.swift */; };
 		5002D60B21F2C79D000C60F4 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002D60A21F2C79D000C60F4 /* Bible.swift */; };
 		5002D60F21F2D98A000C60F4 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002D60E21F2D98A000C60F4 /* Loader.swift */; };
+		5002D61121F2F127000C60F4 /* BibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002D61021F2F127000C60F4 /* BibleViewController.swift */; };
 		5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013C82321D886C900018173 /* DetailTextViewController.swift */; };
 		501AB79921F046B5003FD095 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AB79821F046B5003FD095 /* Index.swift */; };
 		501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501AB79A21F049DE003FD095 /* CommentaryViewController.swift */; };
@@ -1213,6 +1214,7 @@
 		5002D60821F2C652000C60F4 /* TopicResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicResult.swift; sourceTree = "<group>"; };
 		5002D60A21F2C79D000C60F4 /* Bible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bible.swift; sourceTree = "<group>"; };
 		5002D60E21F2D98A000C60F4 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		5002D61021F2F127000C60F4 /* BibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleViewController.swift; sourceTree = "<group>"; };
 		5013C82321D886C900018173 /* DetailTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTextViewController.swift; sourceTree = "<group>"; };
 		501AB79821F046B5003FD095 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Index.swift; path = model/Index.swift; sourceTree = "<group>"; };
 		501AB79A21F049DE003FD095 /* CommentaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentaryViewController.swift; sourceTree = "<group>"; };
@@ -2428,6 +2430,7 @@
 		5002D60721F2C51F000C60F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5002D61021F2F127000C60F4 /* BibleViewController.swift */,
 				501AB79A21F049DE003FD095 /* CommentaryViewController.swift */,
 				5056144E21ED42A700A2D1D3 /* FindViewController.swift */,
 				507FD81D21E129E900CDBB93 /* JournalViewController.swift */,
@@ -4998,6 +5001,7 @@
 				5002D60F21F2D98A000C60F4 /* Loader.swift in Sources */,
 				5087234021CB8828007925FF /* Commentary.swift in Sources */,
 				5087234221CB8837007925FF /* Info.swift in Sources */,
+				5002D61121F2F127000C60F4 /* BibleViewController.swift in Sources */,
 				5002D60921F2C652000C60F4 /* TopicResult.swift in Sources */,
 				501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */,
 				5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */,

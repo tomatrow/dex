@@ -340,6 +340,21 @@
             </objects>
             <point key="canvasLocation" x="-1833" y="2732"/>
         </scene>
+        <!--Bible-->
+        <scene sceneID="bf4-nc-uEC">
+            <objects>
+                <viewController title="Bible" id="e7e-XJ-sF6" customClass="BibleViewController" customModule="dex" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kjF-tI-vzE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="pQ8-my-xfA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iNj-fP-Vil" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1834" y="3542"/>
+        </scene>
         <!--Journal-->
         <scene sceneID="p2U-SY-92i">
             <objects>
@@ -366,7 +381,11 @@
                         <viewLayoutGuide key="safeArea" id="zmM-8i-61H"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="B" id="RFZ-ev-om8"/>
+                        <barButtonItem title="B" id="RFZ-ev-om8">
+                            <connections>
+                                <segue destination="e7e-XJ-sF6" kind="show" identifier="showBible" id="7wl-AG-6K3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="kgR-Ob-f6x"/>
                         <barButtonItem title="C" id="cqD-3Q-XjB">
                             <connections>
