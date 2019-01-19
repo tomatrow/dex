@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias TopicTable = [String: [TopicResult]]
+
 class FindViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     var searchBar: UISearchBar {

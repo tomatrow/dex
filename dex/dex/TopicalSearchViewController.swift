@@ -51,19 +51,6 @@ class TopicalSearchViewController: UITableViewController {
 
 // MARK: Helper methods
 
-struct TopicResult {
-    var bibleSection = ""
-    var qualityScore: Int
-
-    init?(section: String, score: String) {
-        bibleSection = section
-        guard let qualityScore = Int(score) else { return nil }
-        self.qualityScore = qualityScore
-    }
-}
-
-typealias TopicTable = [String: [TopicResult]]
-
 extension TopicalSearchViewController {
     func searchFor(_ text: String) -> [String] {
         return allTopics.filter { $0.contains(text.lowercased()) }

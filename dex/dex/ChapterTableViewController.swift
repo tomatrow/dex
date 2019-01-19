@@ -50,21 +50,6 @@ struct CellViewModel {
     var text = "An amount of text."
 }
 
-struct Verse {
-    var number: Int
-    var text: String
-}
-
-struct Chapter {
-    var number: Int
-    var verses: [Verse]
-}
-
-struct Book {
-    var name: String
-    var chapters: [Chapter]
-}
-
 extension ChapterTableViewController {
     func loadViewModel() -> [CellViewModel] {
         // load the bible
