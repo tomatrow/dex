@@ -347,9 +347,27 @@
                     <view key="view" contentMode="scaleToFill" id="kjF-tI-vzE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JTq-8f-tq0">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pQ8-my-xfA" firstAttribute="bottom" secondItem="JTq-8f-tq0" secondAttribute="bottom" id="4Oe-rX-IGj"/>
+                            <constraint firstItem="JTq-8f-tq0" firstAttribute="top" secondItem="pQ8-my-xfA" secondAttribute="top" id="Bi1-FY-hVT"/>
+                            <constraint firstItem="pQ8-my-xfA" firstAttribute="trailing" secondItem="JTq-8f-tq0" secondAttribute="trailing" id="vMN-jK-Lb3"/>
+                            <constraint firstItem="JTq-8f-tq0" firstAttribute="leading" secondItem="pQ8-my-xfA" secondAttribute="leading" id="w7B-bm-YJF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="pQ8-my-xfA"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="JTq-8f-tq0" id="JGE-rz-iW2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNj-fP-Vil" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

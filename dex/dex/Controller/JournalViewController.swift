@@ -24,12 +24,20 @@ class JournalViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        guard segue.identifier == "showCommentary",
-            let commentaryController = segue.destination as? CommentaryViewController
-        else { return }
+        guard let identifier = segue.identifier else { return }
+        let controller = segue.destination
 
-        // Just load this as the default commentary for now
-        commentaryController.commentary = Loader.commentaries.first!
+        // Just load a default model for now
+        switch identifier {
+        case "showCommentary":
+            let commentaryController = controller as! CommentaryViewController
+            commentaryController.commentary = Loader.commentaries.first!
+        case "showBible":
+            let bibleController = controller as! BibleViewController
+            bibleController.chapter = Loader.bible.first!.chapters.first!
+        default:
+            return
+        }
     }
 }
 
