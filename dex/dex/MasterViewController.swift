@@ -10,7 +10,7 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController?
-    lazy var objects = loadCommentaries()
+    lazy var objects = Loader.commentaries
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,24 +73,5 @@ class MasterViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
-    }
-}
-
-extension MasterViewController {
-    func loadCommentaries() -> [Commentary] {
-        let decoder = JSONDecoder()
-        var commentaries = [Commentary]()
-        let paths = Bundle.main.paths(forResourcesOfType: "json", inDirectory: nil)
-        for path in paths {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let commentary = try decoder.decode(Commentary.self, from: data)
-                commentaries.append(commentary)
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
-        commentaries.sort(by: <)
-        return commentaries
     }
 }

@@ -52,61 +52,8 @@ struct CellViewModel {
 
 extension ChapterTableViewController {
     func loadViewModel() -> [CellViewModel] {
-        // load the bible
-        let paths = Bundle.main.paths(forResourcesOfType: "json", inDirectory: nil)
-        let esvPath = paths.filter { $0.contains("ESV") }.first!
-
-        // convert from data to raw nested dicts
-        typealias RawBible = [String: [String: [String: String]]]
-        /* {
-         "bookName": {
-         "chapterNumber": {
-         "verseNumber": "verse",...
-         },...
-         },...
-         }*/
-
-        let decoder = JSONDecoder()
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: esvPath), options: .mappedIfSafe),
-            let rawBible = try? decoder.decode(RawBible.self, from: data)
-        else { assert(false) }
-
         var viewModel = [CellViewModel]()
-
-        var bible = [Book]()
-        for bookObject in rawBible {
-            let bookName = bookObject.key
-            var chapters = [Chapter]()
-
-            // read all the chapters
-            for chapterObject in bookObject.value {
-                let chapterNumber = chapterObject.key
-                var verses = [Verse]()
-
-                // read all the verses
-                for verseObject in chapterObject.value {
-                    let verseNumber = verseObject.key
-                    let verseText = verseObject.value
-                    let verse = Verse(number: Int(verseNumber)!, text: verseText)
-                    verses.append(verse)
-                }
-
-                // sort the verses
-                verses.sort { $0.number < $1.number }
-
-                let chapter = Chapter(number: Int(chapterNumber)!, verses: verses)
-                chapters.append(chapter)
-            }
-
-            // sort the chapters
-            chapters.sort { $0.number < $1.number }
-
-            let book = Book(name: bookName, chapters: chapters)
-            bible.append(book)
-        }
-
-        // sort the books
-        bible.sort { $0.name < $1.name }
+        let bible = Loader.bible
 
         for book in bible {
             viewModel += book.chapters.map { chapter -> CellViewModel in

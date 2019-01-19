@@ -24,7 +24,7 @@ class FindViewController: UITableViewController {
         return scopes[scopeIndex]
     }
 
-    lazy var table = loadData()
+    lazy var table = Loader.topicTable
 
     lazy var data = [
         "Topic": self.table.keys.sorted(),
@@ -87,46 +87,6 @@ extension FindViewController {
 
     private func search() -> [String] {
         return allItems.filter { $0.contains(text) }
-    }
-
-    func loadData() -> TopicTable {
-        // topic-votes.txt is raw unmoderated/unfiltered data, devoid of any votes from openbible (I think)
-        // topic-scores.txt has been moderated
-
-        // load the raw text
-        let path = Bundle.main.path(forResource: "topic-scores", ofType: "txt")!
-        let text = try! String(contentsOfFile: path)
-
-        // separate columns by tabs and rows by lines
-        let rows = text
-            .components(separatedBy: CharacterSet.newlines)
-            .map { $0.split(separator: "\t").map { col in String(col) } }
-        assert(53508 == rows.count)
-
-        // convert into a live table
-        var table = TopicTable()
-        // first line is header, last line is blank
-        rows[1 ..< rows.endIndex - 1].forEach { row in
-            assert(row.count == 3)
-
-            // extract data from row
-            let topic = row[0]
-            let result = TopicResult(section: row[1], score: row[2])!
-
-            // save in table
-            if table[topic] != nil {
-                table[topic]!.append(result)
-            } else {
-                table[topic] = [result]
-            }
-        }
-
-        // sort the results
-        table.keys.forEach { key in
-            table[key]!.sort { $0.qualityScore > $1.qualityScore }
-        }
-
-        return table
     }
 }
 
