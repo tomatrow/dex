@@ -1208,6 +1208,9 @@
 		5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085744D21D69A030041A06E /* ChapterTableViewController.swift */; };
 		5087234021CB8828007925FF /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087233F21CB8828007925FF /* Commentary.swift */; };
 		5087234221CB8837007925FF /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5087234121CB8837007925FF /* Info.swift */; };
+		50BE331B21F663530079AF33 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE331A21F663530079AF33 /* ListItemCell.swift */; };
+		50BE331D21F6635E0079AF33 /* MapKeyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE331C21F6635E0079AF33 /* MapKeyCell.swift */; };
+		50BE331F21F6636B0079AF33 /* MapListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE331E21F6636B0079AF33 /* MapListCell.swift */; };
 		50BE332221F6705A0079AF33 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE332121F6705A0079AF33 /* MapViewModel.swift */; };
 		50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BEC68021D6072100C07499 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -2416,6 +2419,9 @@
 		5085744D21D69A030041A06E /* ChapterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterTableViewController.swift; sourceTree = "<group>"; };
 		5087233F21CB8828007925FF /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		5087234121CB8837007925FF /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		50BE331A21F663530079AF33 /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		50BE331C21F6635E0079AF33 /* MapKeyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKeyCell.swift; sourceTree = "<group>"; };
+		50BE331E21F6636B0079AF33 /* MapListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListCell.swift; sourceTree = "<group>"; };
 		50BE332121F6705A0079AF33 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50BEC68021D6072100C07499 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2462,6 +2468,7 @@
 		50221A5C21CB282300E28EC9 /* dex */ = {
 			isa = PBXGroup;
 			children = (
+				50BE331921F660E00079AF33 /* View */,
 				50BE332021F6702C0079AF33 /* ViewModel */,
 				50221A7121CB28BA00E28EC9 /* data */,
 				50221A5D21CB282300E28EC9 /* AppDelegate.swift */,
@@ -3721,6 +3728,16 @@
 				5087233F21CB8828007925FF /* Commentary.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		50BE331921F660E00079AF33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50BE331A21F663530079AF33 /* ListItemCell.swift */,
+				50BE331C21F6635E0079AF33 /* MapKeyCell.swift */,
+				50BE331E21F6636B0079AF33 /* MapListCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		50BE332021F6702C0079AF33 /* ViewModel */ = {
@@ -5008,8 +5025,10 @@
 				5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */,
 				507FD81E21E129EA00CDBB93 /* JournalViewController.swift in Sources */,
 				50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */,
+				50BE331B21F663530079AF33 /* ListItemCell.swift in Sources */,
 				5002D60B21F2C79D000C60F4 /* Bible.swift in Sources */,
 				501AB79921F046B5003FD095 /* Index.swift in Sources */,
+				50BE331D21F6635E0079AF33 /* MapKeyCell.swift in Sources */,
 				5060FEDF21DC3C5A00C52C82 /* TopicDetailViewController.swift in Sources */,
 				5002D61321F2F81F000C60F4 /* MapViewController.swift in Sources */,
 				50221A6021CB282300E28EC9 /* MasterViewController.swift in Sources */,
@@ -5021,6 +5040,7 @@
 				5002D60921F2C652000C60F4 /* TopicResult.swift in Sources */,
 				501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */,
 				5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */,
+				50BE331F21F6636B0079AF33 /* MapListCell.swift in Sources */,
 				50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */,
 				50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */,
 				5056144F21ED42A700A2D1D3 /* FindViewController.swift in Sources */,

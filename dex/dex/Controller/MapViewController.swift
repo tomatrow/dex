@@ -8,6 +8,7 @@
 
 import UIKit
 
+/* Displays a dictionary of lists is a selectable manner. */
 class MapViewController: UITableViewController {
     let model = ["1": ["l"], "2": ["o"], "3": ["a", "b", "c"], "4": ["p", "q", "r"], "5": ["x", "y", "z"]]
     var viewModel = [MapCellViewModel]() {
@@ -32,10 +33,10 @@ extension MapViewController {
         let identifier = cellViewModel.identifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MapViewModelConfigurable
 
-        if let subCell = cell as? MapSubheadingCell {
+        if let subCell = cell as? MapListCell {
             subCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: row)
         } else {
-            let cell = cell as! MapHeadingCell
+            let cell = cell as! MapKeyCell
             cell.labelView.text = cellViewModel.description
         }
 
@@ -63,7 +64,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ListItemCell
 
         let title = model[collectionView.tag.description]![indexPath.row]
         cell.button.setTitle(title, for: .normal)
@@ -109,31 +110,7 @@ protocol MapViewModelConfigurable where Self: UITableViewCell {
     func configureFor(_ viewModel: MapCellViewModel)
 }
 
-class MapHeadingCell: UITableViewCell, MapViewModelConfigurable {
-    @IBOutlet var labelView: UILabel!
-
-    func configureFor(_ viewModel: MapCellViewModel) {
-        guard let labelView = labelView else { return }
-        guard case let .single(title) = viewModel else { assert(false) }
-        labelView.text = title
-    }
-}
-
-class MapSubheadingCell: UITableViewCell, MapViewModelConfigurable {
-    @IBOutlet var collectionView: UICollectionView!
-    func configureFor(_ viewModel: MapCellViewModel) {
-        guard let collectionView = collectionView else { return }
-        guard case let .multiple(list) = viewModel else { assert(false) }
-    }
-
-    func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
-        collectionView.delegate = dataSourceDelegate
-        collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = row
-        collectionView.reloadData()
-    }
-}
-
-class ItemCell: UICollectionViewCell {
-    @IBOutlet var button: UIButton!
+enum MyMapCellViewModel {
+    case key(String)
+    case list([String])
 }
