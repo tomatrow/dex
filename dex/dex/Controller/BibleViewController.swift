@@ -21,7 +21,17 @@ class BibleViewController: UIViewController {
         super.viewDidLoad()
         configureView()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "showMap" {
+            let mapController = segue.destination as! MapViewController
+            mapController.delegate = self
+            mapController.model = MapViewController.defaultExampleModel
+        }
+    }
 }
+
+extension BibleViewController: MapViewControllerDelegate {}
 
 extension BibleViewController {
     func configureView() {

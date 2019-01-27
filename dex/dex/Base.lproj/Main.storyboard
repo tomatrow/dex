@@ -375,7 +375,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="p2z-U4-r20" kind="presentation" id="dUY-Gt-2Gn"/>
+                                <segue destination="p2z-U4-r20" kind="presentation" identifier="showMap" id="dUY-Gt-2Gn"/>
                             </connections>
                         </button>
                     </navigationItem>
@@ -395,9 +395,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="dhk-hd-tRn">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Map" id="U21-iz-snK">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ylz-CN-BdL">
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="p2z-U4-r20" id="xEw-KH-5nt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeadingCell" textLabel="8LW-HW-HIe" style="IBUITableViewCellStyleDefault" id="CgP-vZ-aHM" customClass="MapKeyCell" customModule="dex" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CgP-vZ-aHM" id="ucy-gk-g87">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -416,16 +429,19 @@
                                     <outlet property="labelView" destination="8LW-HW-HIe" id="hjd-IQ-NFl"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubheadingCell" rowHeight="301" id="vV4-2e-ae3" customClass="MapListCell" customModule="dex" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="301"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubheadingCell" rowHeight="105" id="vV4-2e-ae3" customClass="MapListCell" customModule="dex" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="116" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vV4-2e-ae3" id="4uR-rz-g69">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vV4-2e-ae3" id="4uR-rz-g69">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="104.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-od-I5p">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300.5"/>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MLA-od-I5p">
+                                            <rect key="frame" x="24" y="11" width="327" height="100"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="5In-DK-b3L"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eu0-1r-rIx">
                                                 <size key="itemSize" width="68" height="68"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -441,15 +457,20 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zD1-1M-qxh">
-                                                                <rect key="frame" x="18.5" y="19" width="31" height="30"/>
+                                                                <rect key="frame" x="16" y="20" width="36" height="48"/>
                                                                 <state key="normal" title="Item"/>
+                                                                <connections>
+                                                                    <action selector="buttonTapped:" destination="p2z-U4-r20" eventType="touchUpInside" id="2sw-K3-vDw"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </view>
                                                     <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="zD1-1M-qxh" firstAttribute="centerX" secondItem="KKj-ld-4wN" secondAttribute="centerX" id="dNT-fD-yWI"/>
-                                                        <constraint firstItem="zD1-1M-qxh" firstAttribute="centerY" secondItem="KKj-ld-4wN" secondAttribute="centerY" id="eG7-kM-Qzh"/>
+                                                        <constraint firstItem="zD1-1M-qxh" firstAttribute="leading" secondItem="KKj-ld-4wN" secondAttribute="leadingMargin" id="AVr-2h-CyY"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="zD1-1M-qxh" secondAttribute="trailing" id="JGv-io-blQ"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="zD1-1M-qxh" secondAttribute="bottom" id="SCM-rN-chQ"/>
+                                                        <constraint firstItem="zD1-1M-qxh" firstAttribute="top" secondItem="KKj-ld-4wN" secondAttribute="topMargin" id="oL8-A9-XAR"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="button" destination="zD1-1M-qxh" id="TBQ-NO-MmD"/>
@@ -459,14 +480,15 @@
                                         </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="MLA-od-I5p" secondAttribute="bottom" id="ETZ-RI-YTu"/>
-                                        <constraint firstItem="MLA-od-I5p" firstAttribute="top" secondItem="4uR-rz-g69" secondAttribute="top" id="Sbk-jp-AYH"/>
-                                        <constraint firstItem="MLA-od-I5p" firstAttribute="leading" secondItem="4uR-rz-g69" secondAttribute="leading" id="bwI-ul-x6C"/>
-                                        <constraint firstAttribute="trailing" secondItem="MLA-od-I5p" secondAttribute="trailing" id="eFC-by-NW0"/>
+                                        <constraint firstItem="MLA-od-I5p" firstAttribute="bottom" secondItem="4uR-rz-g69" secondAttribute="bottomMargin" id="50i-JA-B6m"/>
+                                        <constraint firstItem="MLA-od-I5p" firstAttribute="leading" secondItem="4uR-rz-g69" secondAttribute="leadingMargin" constant="8" id="FX0-FU-RoP"/>
+                                        <constraint firstItem="MLA-od-I5p" firstAttribute="top" secondItem="4uR-rz-g69" secondAttribute="topMargin" id="VQH-te-0AK"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="MLA-od-I5p" secondAttribute="trailing" constant="8" id="lG2-GB-gXP"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="collectionView" destination="MLA-od-I5p" id="tc3-YS-8sf"/>
+                                    <outlet property="collectionViewHeightConstraint" destination="5In-DK-b3L" id="l5J-4t-vqO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -621,7 +643,7 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="p2z-U4-r20" kind="presentation" id="tyd-Zr-Xmc"/>
+                                <segue destination="p2z-U4-r20" kind="presentation" identifier="showMap" id="tyd-Zr-Xmc"/>
                             </connections>
                         </button>
                     </navigationItem>

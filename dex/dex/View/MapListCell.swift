@@ -9,12 +9,9 @@
 import Foundation
 import UIKit
 
-class MapListCell: UITableViewCell, MapViewModelConfigurable {
+class MapListCell: UITableViewCell {
     @IBOutlet var collectionView: UICollectionView!
-    func configureFor(_ viewModel: MapCellViewModel) {
-        guard let collectionView = collectionView else { return }
-        guard case let .multiple(list) = viewModel else { assert(false) }
-    }
+    @IBOutlet var collectionViewHeightConstraint: NSLayoutConstraint!
 
     func setCollectionViewDataSourceDelegate(dataSourceDelegate: UICollectionViewDataSource & UICollectionViewDelegate, forRow row: Int) {
         collectionView.delegate = dataSourceDelegate

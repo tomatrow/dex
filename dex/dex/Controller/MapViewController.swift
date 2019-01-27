@@ -8,43 +8,86 @@
 
 import UIKit
 
+protocol MapViewControllerDelegate: class {
+    typealias Coord = (section: Int, row: Int)
+    func mapViewController(_: MapViewController, didFinishWith result: Coord?)
+}
+
+extension MapViewControllerDelegate {
+    func mapViewController(_: MapViewController, didFinishWith result: Coord?) {
+        var resultDescription = "<None>"
+        if let result = result {
+            let item = MapViewController.defaultExampleModel[result.section]
+            resultDescription = "\(item.0) \(item.1[result.row])"
+        }
+        print("Finished with result: \(resultDescription)")
+    }
+}
+
+typealias MapModel = [(String, [String])]
+
 /* Displays a dictionary of lists is a selectable manner. */
 class MapViewController: UITableViewController {
-    let model = ["1": ["l"], "2": ["o"], "3": ["a", "b", "c"], "4": ["p", "q", "r"], "5": ["x", "y", "z"]]
-    var viewModel = [MapCellViewModel]() {
+    var model = MapModel() {
         didSet {
-            tableView.reloadData()
+            configureView()
+        }
+    }
+
+    weak var delegate: MapViewControllerDelegate?
+
+    @IBAction func cancelButtonTapped(_: Any) {
+        finish(with: nil)
+    }
+
+    @IBAction func buttonTapped(_ sender: Any) {
+        // want the key, and the list index in the model
+        // need to recover what button this is
+        let button = sender as! UIButton
+        let tableCellIndex = button.tag
+
+        // Recover the key and value
+        let keyCellViewModel = viewModel.cellViewModels[tableCellIndex - 1]
+        guard
+            case let .key(item) = keyCellViewModel
+        else { assert(false) }
+        let selectedListItem = button.currentTitle!
+
+        // get the index in the model
+        let section = model.firstIndex { $0.0 == item }!
+        let row = model[section].1.firstIndex { $0 == selectedListItem }!
+
+        let coord = (section: section, row: row)
+        finish(with: coord)
+    }
+
+    var viewModel: MapViewModel! {
+        didSet(oldViewModel) {
+            guard oldViewModel != nil else { return }
+
+            let changes = MapViewModel.calculateChanges(from: oldViewModel, to: viewModel)
+            func createIndexPath(_ index: Int) -> IndexPath {
+                return IndexPath(row: index, section: 0)
+            }
+
+            let deletedRows = changes.deleted.map(createIndexPath)
+            let insertedRows = changes.inserted.map(createIndexPath)
+
+            tableView.beginUpdates()
+            tableView.deleteRows(at: deletedRows, with: .top)
+            tableView.insertRows(at: insertedRows, with: .top)
+            tableView.endUpdates()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = model.keys.map(MapCellViewModel.init)
-        viewModel.append(.multiple(["a", "b", "c"]))
+
+        configureView()
     }
 }
 
-// MARK: - Table view delegate
-
-extension MapViewController {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = indexPath.row
-        let cellViewModel = viewModel[row]
-        let identifier = cellViewModel.identifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! MapViewModelConfigurable
-
-        if let subCell = cell as? MapListCell {
-            subCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: row)
-        } else {
-            let cell = cell as! MapKeyCell
-            cell.labelView.text = cellViewModel.description
-        }
-
-        return cell as! UITableViewCell
-    }
-}
-
-// MARK: - Table view data source
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension MapViewController {
     override func numberOfSections(in _: UITableView) -> Int {
@@ -52,7 +95,32 @@ extension MapViewController {
     }
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return viewModel.count
+        return viewModel.cellViewModels.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let cellViewModel = viewModel.cellViewModels[row]
+        let identifier = cellViewModel.identifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+
+        switch cellViewModel {
+        case .key:
+            (cell as! MapKeyCell).labelView.text = cellViewModel.description
+        case .list:
+            let mapListCell = cell as! MapListCell
+            mapListCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: row)
+            let flowlayout = mapListCell.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            mapListCell.collectionViewHeightConstraint.constant = flowlayout.collectionViewContentSize.height
+            mapListCell.collectionView.collectionViewLayout.invalidateLayout()
+        }
+
+        return cell
+    }
+
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard case let .key(key) = viewModel.cellViewModels[indexPath.row] else { return }
+        viewModel.toggle(key)
     }
 }
 
@@ -60,57 +128,56 @@ extension MapViewController {
 
 extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return model[collectionView.tag.description]!.count
+        return items(forCollectionView: collectionView)!.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ListItemCell
 
-        let title = model[collectionView.tag.description]![indexPath.row]
+        let title = items(forCollectionView: collectionView)![indexPath.row]
         cell.button.setTitle(title, for: .normal)
+        cell.button.tag = collectionView.tag
 
         return cell
     }
 }
 
-// MARK: Cell View Model
+// MARK: Helpers
 
-enum MapCellViewModel: CustomStringConvertible {
-    case single(String)
-    case multiple([String])
+extension MapViewController {
+    func items(forCollectionView collectionView: UICollectionView) -> [String]? {
+        let indexOfTableCell = collectionView.tag
+        let tableCellViewModel = viewModel.cellViewModels[indexOfTableCell]
+        guard case let .list(items) = tableCellViewModel else { return nil }
+        return items
+    }
 
-    var identifier: String {
-        switch self {
-        case .single:
-            return "HeadingCell"
-        case .multiple:
-            return "SubheadingCell"
+    func configureView() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 300
+
+        viewModel = MapViewModel(model)
+
+        // Why do I do this? I think this might enforce a height recalculation.
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+
+    func finish(with result: MapViewControllerDelegate.Coord?) {
+        dismiss(animated: true) {
+            // this is probably a leak
+            self.delegate?.mapViewController(self, didFinishWith: result)
         }
     }
 
-    var description: String {
-        switch self {
-        case let .single(item):
-            return item
-        case let .multiple(items):
-            return items.joined(separator: ",")
+    static var defaultExampleModel: MapModel {
+        let alphabetRange = UnicodeScalar("a").value ... UnicodeScalar("z").value
+        let alphabet = alphabetRange.compactMap(Unicode.Scalar.init)
+        return alphabet.enumerated().map { tuple -> (String, [String]) in
+            let (index, letter) = tuple
+            let letterKey = String(letter)
+            let numberlist = (0 ... index).compactMap(String.init)
+            return (letterKey, numberlist)
         }
     }
-
-    init(_ s: String) {
-        self = .single(s)
-    }
-
-    init(_ m: [String]) {
-        self = .multiple(m)
-    }
-}
-
-protocol MapViewModelConfigurable where Self: UITableViewCell {
-    func configureFor(_ viewModel: MapCellViewModel)
-}
-
-enum MyMapCellViewModel {
-    case key(String)
-    case list([String])
 }

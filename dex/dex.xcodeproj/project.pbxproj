@@ -1199,6 +1199,7 @@
 		502223A421CB2C3000E28EC9 /* isaiah-1.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */; };
 		502223A521CB2C3000E28EC9 /* psalm-121.json in Resources */ = {isa = PBXBuildFile; fileRef = 50221F0C21CB2C2E00E28EC9 /* psalm-121.json */; };
 		5056144F21ED42A700A2D1D3 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056144E21ED42A700A2D1D3 /* FindViewController.swift */; };
+		505EB1ED21FAAD700062E68A /* MapCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505EB1EC21FAAD700062E68A /* MapCellViewModel.swift */; };
 		5060FEDA21DBE49C00C52C82 /* topic-votes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5060FED821DBE49B00C52C82 /* topic-votes.txt */; };
 		5060FEDB21DBE49C00C52C82 /* topic-scores.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5060FED921DBE49B00C52C82 /* topic-scores.txt */; };
 		5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5060FEDC21DBEE9400C52C82 /* TopicalSearchViewController.swift */; };
@@ -2410,6 +2411,7 @@
 		50221F0B21CB2C2E00E28EC9 /* isaiah-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "isaiah-1.json"; sourceTree = "<group>"; };
 		50221F0C21CB2C2E00E28EC9 /* psalm-121.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "psalm-121.json"; sourceTree = "<group>"; };
 		5056144E21ED42A700A2D1D3 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		505EB1EC21FAAD700062E68A /* MapCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCellViewModel.swift; sourceTree = "<group>"; };
 		5060FED821DBE49B00C52C82 /* topic-votes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "topic-votes.txt"; path = "dex/data/topics/topic-votes.txt"; sourceTree = SOURCE_ROOT; };
 		5060FED921DBE49B00C52C82 /* topic-scores.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "topic-scores.txt"; path = "dex/data/topics/topic-scores.txt"; sourceTree = SOURCE_ROOT; };
 		5060FEDC21DBEE9400C52C82 /* TopicalSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicalSearchViewController.swift; sourceTree = "<group>"; };
@@ -3743,6 +3745,7 @@
 		50BE332021F6702C0079AF33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				505EB1EC21FAAD700062E68A /* MapCellViewModel.swift */,
 				50BE332121F6705A0079AF33 /* MapViewModel.swift */,
 			);
 			path = ViewModel;
@@ -5040,6 +5043,7 @@
 				5002D60921F2C652000C60F4 /* TopicResult.swift in Sources */,
 				501AB79B21F049DE003FD095 /* CommentaryViewController.swift in Sources */,
 				5085744E21D69A030041A06E /* ChapterTableViewController.swift in Sources */,
+				505EB1ED21FAAD700062E68A /* MapCellViewModel.swift in Sources */,
 				50BE331F21F6636B0079AF33 /* MapListCell.swift in Sources */,
 				50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */,
 				50221A5E21CB282300E28EC9 /* AppDelegate.swift in Sources */,

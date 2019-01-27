@@ -9,12 +9,6 @@
 import Foundation
 import UIKit
 
-class MapKeyCell: UITableViewCell, MapViewModelConfigurable {
+class MapKeyCell: UITableViewCell {
     @IBOutlet var labelView: UILabel!
-
-    func configureFor(_ viewModel: MapCellViewModel) {
-        guard let labelView = labelView else { return }
-        guard case let .single(title) = viewModel else { assert(false) }
-        labelView.text = title
-    }
 }
