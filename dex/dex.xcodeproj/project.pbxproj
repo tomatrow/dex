@@ -1214,6 +1214,7 @@
 		50BE331F21F6636B0079AF33 /* MapListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE331E21F6636B0079AF33 /* MapListCell.swift */; };
 		50BE332221F6705A0079AF33 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE332121F6705A0079AF33 /* MapViewModel.swift */; };
 		50BEC68121D6072100C07499 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BEC68021D6072100C07499 /* TabBarViewController.swift */; };
+		50DA177921FD95B800DC5640 /* MapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA177821FD95B800DC5640 /* MapModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -2426,6 +2427,7 @@
 		50BE331E21F6636B0079AF33 /* MapListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapListCell.swift; sourceTree = "<group>"; };
 		50BE332121F6705A0079AF33 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50BEC68021D6072100C07499 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		50DA177821FD95B800DC5640 /* MapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3722,6 +3724,7 @@
 		5087234321CB8842007925FF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				50DA177821FD95B800DC5640 /* MapModel.swift */,
 				5002D60E21F2D98A000C60F4 /* Loader.swift */,
 				5002D60821F2C652000C60F4 /* TopicResult.swift */,
 				5002D60A21F2C79D000C60F4 /* Bible.swift */,
@@ -5025,6 +5028,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5013C82421D886C900018173 /* DetailTextViewController.swift in Sources */,
+				50DA177921FD95B800DC5640 /* MapModel.swift in Sources */,
 				5060FEDD21DBEE9400C52C82 /* TopicalSearchViewController.swift in Sources */,
 				507FD81E21E129EA00CDBB93 /* JournalViewController.swift in Sources */,
 				50221A6221CB282300E28EC9 /* DetailViewController.swift in Sources */,

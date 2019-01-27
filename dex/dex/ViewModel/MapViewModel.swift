@@ -27,7 +27,7 @@ struct MapViewModel {
             let tuple = model[i]
             let item = Item(key: tuple.0, list: tuple.1, fold: .closed)
             items.append(item)
-            keyIndexMap[tuple.0] = i
+            keyIndexMap[tuple.0.title] = i
         }
     }
 
@@ -61,8 +61,8 @@ extension MapViewModel {
         // get indexes of changes in items with their new status
         let changes = oldValue.indices.filter { oldValue[$0].fold != items[$0].fold }
         let rawDict = changes.map { oldValue[$0] }.map { ($0.key, $0.fold.toggled()) }
-        let newlyFolded = [String: Fold](uniqueKeysWithValues: rawDict)
-        func wasChanged(_ key: String) -> Bool {
+        let newlyFolded = [MapItem: Fold](uniqueKeysWithValues: rawDict)
+        func wasChanged(_ key: MapItem) -> Bool {
             return newlyFolded[key] != nil
         }
 
@@ -70,7 +70,7 @@ extension MapViewModel {
         func getListIndexes(for fold: Fold, in list: [MapCellViewModel]) -> [Int] {
             return list.enumerated()
                 // get the keys with their index in list
-                .compactMap { tuple -> (offset: Int, key: String)? in
+                .compactMap { tuple -> (offset: Int, key: MapItem)? in
                     if case let .key(key) = tuple.element {
                         return (tuple.offset, key)
                     } else {
@@ -113,8 +113,8 @@ fileprivate enum Fold {
 }
 
 fileprivate struct Item {
-    var key = ""
-    var list = [String]()
+    var key: MapItem
+    var list: [MapItem]
     var fold = Fold.closed
 }
 

@@ -8,24 +8,6 @@
 
 import UIKit
 
-protocol MapViewControllerDelegate: class {
-    typealias Coord = (section: Int, row: Int)
-    func mapViewController(_: MapViewController, didFinishWith result: Coord?)
-}
-
-extension MapViewControllerDelegate {
-    func mapViewController(_: MapViewController, didFinishWith result: Coord?) {
-        var resultDescription = "<None>"
-        if let result = result {
-            let item = MapViewController.defaultExampleModel[result.section]
-            resultDescription = "\(item.0) \(item.1[result.row])"
-        }
-        print("Finished with result: \(resultDescription)")
-    }
-}
-
-typealias MapModel = [(String, [String])]
-
 /* Displays a dictionary of lists is a selectable manner. */
 class MapViewController: UITableViewController {
     var model = MapModel() {
@@ -51,11 +33,11 @@ class MapViewController: UITableViewController {
         guard
             case let .key(item) = keyCellViewModel
         else { assert(false) }
-        let selectedListItem = button.currentTitle!
+        let selectedListItemTitle = button.currentTitle!
 
         // get the index in the model
         let section = model.firstIndex { $0.0 == item }!
-        let row = model[section].1.firstIndex { $0 == selectedListItem }!
+        let row = model[section].1.firstIndex { $0.title == selectedListItemTitle }!
 
         let coord = (section: section, row: row)
         finish(with: coord)
@@ -120,7 +102,7 @@ extension MapViewController {
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard case let .key(key) = viewModel.cellViewModels[indexPath.row] else { return }
-        viewModel.toggle(key)
+        viewModel.toggle(key.title)
     }
 }
 
@@ -134,8 +116,8 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ListItemCell
 
-        let title = items(forCollectionView: collectionView)![indexPath.row]
-        cell.button.setTitle(title, for: .normal)
+        let item = items(forCollectionView: collectionView)![indexPath.row]
+        cell.button.setTitle(item.title, for: .normal)
         cell.button.tag = collectionView.tag
 
         return cell
@@ -145,7 +127,7 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
 // MARK: Helpers
 
 extension MapViewController {
-    func items(forCollectionView collectionView: UICollectionView) -> [String]? {
+    func items(forCollectionView collectionView: UICollectionView) -> [MapItem]? {
         let indexOfTableCell = collectionView.tag
         let tableCellViewModel = viewModel.cellViewModels[indexOfTableCell]
         guard case let .list(items) = tableCellViewModel else { return nil }
@@ -173,11 +155,29 @@ extension MapViewController {
     static var defaultExampleModel: MapModel {
         let alphabetRange = UnicodeScalar("a").value ... UnicodeScalar("z").value
         let alphabet = alphabetRange.compactMap(Unicode.Scalar.init)
-        return alphabet.enumerated().map { tuple -> (String, [String]) in
+        return alphabet.enumerated().map { tuple -> MapCoord in
             let (index, letter) = tuple
             let letterKey = String(letter)
             let numberlist = (0 ... index).compactMap(String.init)
-            return (letterKey, numberlist)
+            return (MapItem(letterKey), numberlist.map { MapItem($0) })
         }
+    }
+}
+
+// MARK: - MapViewControllerDelegate
+
+protocol MapViewControllerDelegate: class {
+    typealias Coord = (section: Int, row: Int)
+    func mapViewController(_: MapViewController, didFinishWith result: Coord?)
+}
+
+extension MapViewControllerDelegate {
+    func mapViewController(_: MapViewController, didFinishWith result: Coord?) {
+        var resultDescription = "<None>"
+        if let result = result {
+            let item = MapViewController.defaultExampleModel[result.section]
+            resultDescription = "\(item.0) \(item.1[result.row])"
+        }
+        print("Finished with result: \(resultDescription)")
     }
 }

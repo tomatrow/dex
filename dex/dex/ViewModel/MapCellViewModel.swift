@@ -9,8 +9,8 @@
 import Foundation
 
 enum MapCellViewModel: CustomStringConvertible {
-    case key(String)
-    case list([String])
+    case key(MapItem)
+    case list([MapItem])
 
     var identifier: String {
         switch self {
@@ -24,9 +24,9 @@ enum MapCellViewModel: CustomStringConvertible {
     var description: String {
         switch self {
         case let .key(item):
-            return item
+            return item.title
         case let .list(items):
-            return items.joined(separator: ",")
+            return items.map { $0.title }.joined(separator: ",")
         }
     }
 }
