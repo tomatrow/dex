@@ -13,9 +13,13 @@ class CommentaryViewController: UIViewController {
     @IBOutlet var webView: WKWebView!
     static var orderedCommentaryMap = createOrderedCommentaryMap()
     static var commentaryModel = createCommentaryModel()
+
+    weak var commentaryDelegate: CommentaryViewControllerDelegate?
+
     var commentary: Commentary? {
         didSet {
             configureView()
+            updateDelegateIfNeeded(from: oldValue, to: commentary)
         }
     }
 
@@ -68,4 +72,13 @@ extension CommentaryViewController {
                 return (bookItem, chapters)
             }
     }
+
+    func updateDelegateIfNeeded(from: Commentary?, to: Commentary?) {
+        guard to != from, let newCommentary = to else { return }
+        commentaryDelegate?.commentaryController(self, didSet: newCommentary)
+    }
+}
+
+protocol CommentaryViewControllerDelegate: class {
+    func commentaryController(_ controller: CommentaryViewController, didSet commentary: Commentary)
 }

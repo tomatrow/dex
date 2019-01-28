@@ -15,6 +15,8 @@ class JournalViewController: UIViewController {
         }
     }
 
+    private var subModelState = SubModelState()
+
     @IBOutlet var textView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +33,12 @@ class JournalViewController: UIViewController {
         switch identifier {
         case "showCommentary":
             let commentaryController = controller as! CommentaryViewController
-            commentaryController.commentary = Loader.commentaries.first!
+            commentaryController.commentaryDelegate = self
+            commentaryController.commentary = subModelState.commentary
         case "showBible":
             let bibleController = controller as! BibleViewController
-            bibleController.chapter = Loader.bible.first!.chapters.first!
+            bibleController.bibleControllerDelegate = self
+            bibleController.chapter = subModelState.chapter
         default:
             return
         }
@@ -57,4 +61,19 @@ extension JournalViewController {
     static func loadText() -> String {
         return UserDefaults.standard.string(forKey: notesKey) ?? String(repeating: "\n", count: 100)
     }
+}
+
+extension JournalViewController: CommentaryViewControllerDelegate, BibleViewControllerDelegate {
+    func bibleController(_: BibleViewController, didSet chapter: Chapter) {
+        subModelState.chapter = chapter
+    }
+
+    func commentaryController(_: CommentaryViewController, didSet commentary: Commentary) {
+        subModelState.commentary = commentary
+    }
+}
+
+fileprivate struct SubModelState {
+    var commentary = Loader.commentaries.first!
+    var chapter = Loader.bible.first!.chapters.first!
 }

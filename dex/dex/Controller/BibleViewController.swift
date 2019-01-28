@@ -11,10 +11,13 @@ import UIKit
 class BibleViewController: UIViewController {
     @IBOutlet var textView: UITextView!
 
+    weak var bibleControllerDelegate: BibleViewControllerDelegate?
+
     static var bibleModel = createBibleModel()
     var chapter: Chapter? {
         didSet {
             configureView()
+            updateDelegateIfNeeded(from: oldValue, to: chapter)
         }
     }
 
@@ -67,4 +70,13 @@ extension BibleViewController {
         }
         return bibleModel
     }
+
+    func updateDelegateIfNeeded(from: Chapter?, to: Chapter?) {
+        guard to != from, let newChapter = to else { return }
+        bibleControllerDelegate?.bibleController(self, didSet: newChapter)
+    }
+}
+
+protocol BibleViewControllerDelegate: class {
+    func bibleController(_ controller: BibleViewController, didSet chapter: Chapter)
 }
