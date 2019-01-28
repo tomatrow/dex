@@ -148,7 +148,7 @@ extension MapViewController {
     func finish(with result: MapViewControllerDelegate.Coord?) {
         dismiss(animated: true) {
             // this is probably a leak
-            self.delegate?.mapViewController(self, didFinishWith: result)
+            self.delegate?.mapViewController(self, with: self.model, didFinishWith: result)
         }
     }
 
@@ -168,14 +168,14 @@ extension MapViewController {
 
 protocol MapViewControllerDelegate: class {
     typealias Coord = (section: Int, row: Int)
-    func mapViewController(_: MapViewController, didFinishWith result: Coord?)
+    func mapViewController(_: MapViewController, with model: MapModel, didFinishWith result: Coord?)
 }
 
 extension MapViewControllerDelegate {
-    func mapViewController(_: MapViewController, didFinishWith result: Coord?) {
+    func mapViewController(_: MapViewController, with model: MapModel, didFinishWith result: Coord?) {
         var resultDescription = "<None>"
         if let result = result {
-            let item = MapViewController.defaultExampleModel[result.section]
+            let item = model[result.section]
             resultDescription = "\(item.0) \(item.1[result.row])"
         }
         print("Finished with result: \(resultDescription)")
