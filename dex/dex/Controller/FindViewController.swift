@@ -101,6 +101,13 @@ extension FindViewController {
 
         return cell
     }
+
+    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let text = viewModel[index]
+        let results = table[text]!
+        print(results.map { $0.bibleSection })
+    }
 }
 
 // MARK: - Table view data source
