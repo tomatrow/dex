@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct Verse {
+struct Verse: Equatable {
     var number: Int
     var text: String
 }
 
-struct Chapter {
+struct Chapter: Equatable {
     var number: Int
     var verses: [Verse]
 }
 
-struct Book {
+struct Book: Equatable {
     var name: String
     var chapters: [Chapter]
 }

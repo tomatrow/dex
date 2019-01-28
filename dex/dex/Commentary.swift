@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Commentary: Codable {
+struct Commentary: Codable, Equatable {
     var info: Info
     var markup: String
 }

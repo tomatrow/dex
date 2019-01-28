@@ -11,7 +11,7 @@ import Foundation
 // oh my gosh, yes.
 // https://www.hackingwithswift.com/example-code/language/how-to-convert-json-into-swift-objects-using-codable
 
-struct Info: Codable, CustomStringConvertible {
+struct Info: Codable, CustomStringConvertible, Equatable {
     var book: String
     var chapters: [Int]
     var volume: Int?
