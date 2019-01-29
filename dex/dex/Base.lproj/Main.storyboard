@@ -258,9 +258,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="RWw-qi-BgB" kind="show" identifier="showDetail" id="IwP-dU-plf"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -301,7 +298,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ck6-pl-YKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="806" y="1891"/>
+            <point key="canvasLocation" x="1647" y="2731"/>
         </scene>
         <!--Topics-->
         <scene sceneID="LUj-lb-TEv">
@@ -572,6 +569,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RWw-qi-BgB" kind="show" identifier="showDetail" id="90T-xz-dVu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

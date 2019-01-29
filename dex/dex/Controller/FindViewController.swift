@@ -58,6 +58,15 @@ class FindViewController: UITableViewController {
         // Set the default search
         updateSearch()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
+        if segue.identifier == "showDetail" {
+            let topicController = segue.destination as! TopicDetailViewController
+            let index = tableView.indexPathForSelectedRow!
+            let text = viewModel[index.row]
+            topicController.topicResults = table[text]!
+        }
+    }
 }
 
 // MARK: - Private Extention
@@ -73,10 +82,6 @@ private extension FindViewController {
 
     func search() -> [String] {
         return allItems.filter { $0.contains(searchController.searchBar.text!) }
-    }
-
-    func displayResults(_ results: [TopicResult]) {
-        print(results.map { $0.bibleSection })
     }
 
     // MARK: - Computed Properties
@@ -102,13 +107,6 @@ extension FindViewController {
         cell.textLabel?.text = text
 
         return cell
-    }
-
-    override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        let text = viewModel[index]
-        let results = table[text]!
-        displayResults(results)
     }
 
     override func numberOfSections(in _: UITableView) -> Int {
