@@ -9,28 +9,14 @@
 import UIKit
 
 class FindViewController: UITableViewController {
+    // MARK: - Properties
+
     let searchController = UISearchController(searchResultsController: nil)
-    var searchBar: UISearchBar {
-        return searchController.searchBar
-    }
-
-    var text: String {
-        return searchBar.text!
-    }
-
-    var scope: String {
-        let scopeIndex = searchBar.selectedScopeButtonIndex
-        let scopes = searchBar.scopeButtonTitles!
-        return scopes[scopeIndex]
-    }
-
     lazy var table = Loader.topicTable
-
     lazy var data = [
         "Topic": self.table.keys.sorted(),
         "Text": ["1", "2", "3"],
     ]
-
     var allItems = [String]() {
         didSet {
             tableView.reloadData()
@@ -43,9 +29,7 @@ class FindViewController: UITableViewController {
         }
     }
 
-    var viewModel: [String] {
-        return filteredItems ?? allItems
-    }
+    // MARK: - Methods
 
     @IBAction func doneButtonTapped(_: Any) {
         dismiss(animated: true)
@@ -55,15 +39,15 @@ class FindViewController: UITableViewController {
         super.viewDidLoad()
 
         // set up the search bar
-        searchBar.scopeButtonTitles = data.keys.sorted()
-        searchBar.selectedScopeButtonIndex = 1
+        searchController.searchBar.scopeButtonTitles = data.keys.sorted()
+        searchController.searchBar.selectedScopeButtonIndex = 1
 
         // We're using the same contoller => we don't obscure it
         searchController.obscuresBackgroundDuringPresentation = false
 
         // Make this controller the delegate of various items
         searchController.searchResultsUpdater = self
-        searchBar.delegate = self
+        searchController.searchBar.delegate = self
 
         // Set up the navigation item
         navigationItem.searchController = searchController
@@ -76,21 +60,39 @@ class FindViewController: UITableViewController {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Private Extention
 
-extension FindViewController {
-    private func updateSearch() {
-        searchBar.placeholder = "Search \(scope)"
+private extension FindViewController {
+    // MARK: - Methods
+
+    func updateSearch() {
+        searchController.searchBar.placeholder = "Search \(scope)"
         allItems = data[scope]!
-        filteredItems = text.isEmpty ? nil : search()
+        filteredItems = searchController.searchBar.text!.isEmpty ? nil : search()
     }
 
-    private func search() -> [String] {
-        return allItems.filter { $0.contains(text) }
+    func search() -> [String] {
+        return allItems.filter { $0.contains(searchController.searchBar.text!) }
+    }
+
+    func displayResults(_ results: [TopicResult]) {
+        print(results.map { $0.bibleSection })
+    }
+
+    // MARK: - Computed Properties
+
+    var scope: String {
+        let scopeIndex = searchController.searchBar.selectedScopeButtonIndex
+        let scopes = searchController.searchBar.scopeButtonTitles!
+        return scopes[scopeIndex]
+    }
+
+    var viewModel: [String] {
+        return filteredItems ?? allItems
     }
 }
 
-// MARK: - Table view delegate
+// MARK: - UITableViewDelegate, UITableViewDatasource
 
 extension FindViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,13 +108,9 @@ extension FindViewController {
         let index = indexPath.row
         let text = viewModel[index]
         let results = table[text]!
-        print(results.map { $0.bibleSection })
+        displayResults(results)
     }
-}
 
-// MARK: - Table view data source
-
-extension FindViewController {
     override func numberOfSections(in _: UITableView) -> Int {
         return 1
     }
